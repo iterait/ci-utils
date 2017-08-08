@@ -35,7 +35,7 @@ function fallback_clone_branch {
 # Example:
 # fallback_pip_install_branch https://github.com/Cognexa/cxflow.git restore
 function fallback_pip_install_branch {
-    project_path=$(fallback_clone_branch "$0" "$1")
+    project_path=$(fallback_clone_branch "$1" "$2")
     cd "$project_path"
     pip3 install .
     cd -
