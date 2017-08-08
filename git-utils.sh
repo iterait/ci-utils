@@ -37,6 +37,6 @@ function fallback_clone_branch {
 function fallback_pip_install_branch {
     project_path=$(fallback_clone_branch "$0" "$1")
     cd "$project_path"
-    pip install .
+    pip3 install .
     cd -
 }
