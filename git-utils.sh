@@ -19,8 +19,8 @@ function fallback_clone_branch {
     project_path=$(pwd)
 
     for branch in "$target_branch" "dev" "master"; do
-        echo "Trying checkout to $target_branch" > /dev/stderr
-        if git checkout "$target_branch" > /dev/stderr; then
+        echo "Trying checkout to $branch" > /dev/stderr
+        if git checkout "$branch" > /dev/stderr; then
             break
         fi
     done
