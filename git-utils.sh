@@ -14,7 +14,6 @@ function fallback_clone_branch {
     project_name=$(echo "$url" | sed 's|.*/\(.*\)\.git|\1|g')
     echo "Project name: " "$project_name" > /dev/stderr
 
-    cd /tmp
     git clone "$url"
     cd "$project_name"
     project_path=$(pwd)
@@ -36,10 +35,12 @@ function fallback_clone_branch {
 # Example:
 # fallback_pip_install_branch https://github.com/Cognexa/cxflow.git restore
 function fallback_pip_install_branch {
+    old_pwd=$(pwd)
     echo "Fallback pip install: " "$1" "$2" > /dev/stderr
+    cd /tmp
     project_path=$(fallback_clone_branch "$1" "$2")
     echo "Project path: " "$project_path" > /dev/stderr
     cd "$project_path"
     pip3 install .
-    cd -
+    cd "$old_pwd"
 }
