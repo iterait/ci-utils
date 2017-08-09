@@ -21,8 +21,7 @@ function fallback_clone_branch {
 
     for branch in "$target_branch" "dev" "master"; do
         echo "Trying checkout to $target_branch" > /dev/stderr
-        git checkout "$target_branch" > /dev/stderr
-        if [ $? -eq 0 ]; then
+        if git checkout "$target_branch" > /dev/stderr; then
             break
         fi
     done
