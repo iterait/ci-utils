@@ -20,7 +20,7 @@ function fallback_clone_branch {
 
     for branch in "$target_branch" "dev" "master"; do
         echo "Trying checkout to $branch" > /dev/stderr
-        if git checkout "$branch" > /dev/stderr; then
+        if git checkout --recurse-submodules "$branch" > /dev/stderr; then
             break
         fi
     done
