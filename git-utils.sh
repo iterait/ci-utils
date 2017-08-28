@@ -14,13 +14,13 @@ function fallback_clone_branch {
     project_name=$(echo "$url" | sed 's|.*/\(.*\)\.git|\1|g')
     echo "Project name: " "$project_name" > /dev/stderr
 
-    git clone "$url"
+    git clone --recurse-submodules "$url"
     cd "$project_name"
     project_path=$(pwd)
 
     for branch in "$target_branch" "dev" "master"; do
         echo "Trying checkout to $branch" > /dev/stderr
-        if git checkout --recurse-submodules "$branch" > /dev/stderr; then
+        if git checkout "$branch" > /dev/stderr; then
             break
         fi
     done
