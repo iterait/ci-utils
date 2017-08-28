@@ -9,8 +9,14 @@ export LANG=en_US.UTF-8
 git config --global user.email "cxflow@cognexa.com"
 git config --global user.name "CircleCI"
 
-# build the docs
 cd docs
+
+# update the shared templates etc.
+if [ -d _base ]; then
+	git submodule update --remote _base
+fi
+
+# build the docs
 sphinx-build . build
 
 # push the docs to the gh-pages branch
