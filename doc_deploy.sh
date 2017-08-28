@@ -2,7 +2,11 @@
 
 # prepare the env for building docs
 apt-get install -y python3-sphinx graphviz locales language-pack-en
-pip3 install -r requirements-docs.txt
+
+if [ -f requirements-docs.txt ]; then
+	pip3 install -r requirements.txt
+fi
+
 locale-gen --purge
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
@@ -14,6 +18,7 @@ cd docs
 # update the shared templates etc.
 if [ -d _base ]; then
 	git submodule update --remote _base
+	pip3 install -r _base/requirements.txt
 fi
 
 # build the docs
