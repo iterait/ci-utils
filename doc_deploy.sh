@@ -12,6 +12,7 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 git config --global user.email "cxflow@cognexa.com"
 git config --global user.name "CircleCI"
+git submodule update --init
 
 cd docs
 
