@@ -14,7 +14,7 @@ function fallback_clone_branch {
     project_name=$(echo "$url" | sed 's|.*/\(.*\)\.git|\1|g')
     echo "Project name: " "$project_name" > /dev/stderr
 
-    git clone --recurse-submodules "$url"
+    git clone --recurse-submodules "$url" > /dev/stderr
     cd "$project_name"
     project_path=$(pwd)
 
