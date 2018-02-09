@@ -23,7 +23,7 @@ if [ -d _base ]; then
 fi
 
 # build the docs
-sphinx-build . build
+sphinx-build . build -vvv
 
 # push the docs to the gh-pages branch
 cd ..
