@@ -3,7 +3,7 @@
 # prepare the env for building docs
 apt-get install -y python3-sphinx graphviz locales language-pack-en openssh-client
 
-ssh /root/.ssh
+mkdir /root/.ssh
 chmod 600 -R /root/.ssh
 ssh-keyscan -H github.com >> /root/.ssh/known_hosts
 
