@@ -19,6 +19,9 @@ cd docs
 
 # update the shared templates etc.
 if [ -d _base ]; then
+	cd _base
+	git pull
+	cd ../
 	git submodule update --remote _base
 	pip3 install -r _base/requirements.txt
 fi
