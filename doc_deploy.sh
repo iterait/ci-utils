@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
 # prepare the env for building docs
-apt-get install -y python3-sphinx graphviz locales language-pack-en openssh-client
+export DEBIAN_FRONTEND=noninteractive
+apt-get install -y --force-yes python3-sphinx graphviz locales language-pack-en openssh-client
 
 mkdir /root/.ssh
 chmod 600 -R /root/.ssh
