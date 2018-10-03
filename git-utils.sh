@@ -5,7 +5,7 @@
 # Return the directory to the cloned repository.
 #
 # Example:
-# fallback_clone_branch https://github.com/Cognexa/cxflow.git restore
+# fallback_clone_branch https://github.com/iterait/cxflow.git restore
 function fallback_clone_branch {
     echo "Fallback clone: " "$1" "$2" > /dev/stderr
     url="$1"
@@ -33,7 +33,7 @@ function fallback_clone_branch {
 # If that fails, try `dev` branch and `master` branch.
 #
 # Example:
-# fallback_pip_install_branch https://github.com/Cognexa/cxflow.git restore
+# fallback_pip_install_branch https://github.com/iterait/cxflow.git restore
 function fallback_pip_install_branch {
     old_pwd=$(pwd)
     echo "Fallback pip install: " "$1" "$2" > /dev/stderr
