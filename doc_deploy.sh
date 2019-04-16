@@ -38,10 +38,11 @@ sphinx-build . build -vvv
 cd ..
 git stash
 git checkout gh-pages
-git checkout master -- .circleci/config.yml
 find . -maxdepth 1 -not -path '*/\.*' -not -name 'docs' -not -name 'CNAME' -exec rm -rf {} \;
 cp -r docs/build/* .
 rm -rf docs
+git checkout master -- .circleci/config.yml
+git add .circleci/config.yaml
 git add --all
 git commit -m "Docs update from $CIRCLE_BRANCH : $CIRCLE_SHA1"
 
