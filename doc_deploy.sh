@@ -5,7 +5,7 @@ set -e
 export DEBIAN_FRONTEND=noninteractive
 apt-get install -y --force-yes python3-sphinx graphviz locales language-pack-en openssh-client
 
-mkdir /root/.ssh
+mkdir -p /root/.ssh
 chmod 600 -R /root/.ssh
 ssh-keyscan -H github.com >> /root/.ssh/known_hosts
 
