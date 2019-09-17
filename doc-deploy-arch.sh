@@ -18,6 +18,7 @@ git submodule init
 git submodule update
 
 cd docs
+pip install -r _base/requirements.txt
 
 # build the docs
 sphinx-build . build -vvv
