@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -e
 
 # prepare the env for building docs
 export DEBIAN_FRONTEND=noninteractive
@@ -39,14 +40,15 @@ cd ..
 git stash
 git checkout gh-pages
 find . -maxdepth 1 -not -path '*/\.*' -not -name 'docs' -not -name 'CNAME' -exec rm -rf {} \;
-cp -r docs/build/* .
+git_root="$(git rev-parse --show-toplevel)"
+cp -r docs/build/* "${git_root}"
 rm -rf docs
 git checkout origin/master -- .circleci/config.yml
 git add .circleci/config.yml
 git add --all
 git commit -m "Docs update from $CIRCLE_BRANCH : $CIRCLE_SHA1"
 
-if [ ! -f index.html ]; then
+if [ ! -f "${git_root}"/index.html ]; then
 	>&2 echo doc build failed
 	exit 1
 fi
