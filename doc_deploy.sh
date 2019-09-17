@@ -38,7 +38,7 @@ sphinx-build . build -vvv
 # push the docs to the gh-pages branch
 cd ..
 git stash
-git checkout gh-pages
+git checkout origin gh-pages
 find . -maxdepth 1 -not -path '*/\.*' -not -name 'docs' -not -name 'CNAME' -exec rm -rf {} \;
 git_root="$(git rev-parse --show-toplevel)"
 cp -r docs/build/* "${git_root}"
