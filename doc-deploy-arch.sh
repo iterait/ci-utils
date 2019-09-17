@@ -14,8 +14,8 @@ fi
 
 git config --global user.email "hello@iterait.com"
 git config --global user.name "CircleCI"
-git submodule update --init
-git submodule sync
+git submodule init
+git submodule update
 
 cd docs
 
