@@ -19,12 +19,6 @@ git submodule sync
 
 cd docs
 
-# update the shared templates etc.
-if [ -d _base ]; then
-	git submodule update --remote _base
-	pip install -r _base/requirements.txt
-fi
-
 # build the docs
 sphinx-build . build -vvv
 
