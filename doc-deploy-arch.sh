@@ -32,8 +32,8 @@ find . -maxdepth 1 -not -path '*/\.*' -not -name 'docs' -not -name 'CNAME' -exec
 git_root="$(git rev-parse --show-toplevel)"
 cp -r docs/build/* "${git_root}"
 rm -rf docs
-git checkout origin/master -- .circleci/config.yml
-git add .circleci/config.yml
+git checkout origin/master -- "${git_root}"/.circleci/config.yml
+git add "${git_root}"/.circleci/config.yml
 git add --all
 git commit -m "Docs update from $CIRCLE_BRANCH : $CIRCLE_SHA1"
 
