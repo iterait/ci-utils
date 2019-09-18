@@ -42,4 +42,4 @@ if [ ! -f "${git_root}"/index.html ]; then
 	exit 1
 fi
 
-git push
+git push --force origin HEAD:gh-pages
