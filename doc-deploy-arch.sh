@@ -27,7 +27,7 @@ sphinx-build . build -vvv
 cd ..
 git stash
 git fetch --all
-git checkout origin gh-pages
+git checkout origin/gh-pages
 find . -maxdepth 1 -not -path '*/\.*' -not -name 'docs' -not -name 'CNAME' -exec rm -rf {} \;
 git_root="$(git rev-parse --show-toplevel)"
 cp -r docs/build/* "${git_root}"
