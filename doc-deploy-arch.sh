@@ -35,7 +35,7 @@ rm -rf docs
 git checkout origin/master -- "${git_root}"/.circleci/config.yml
 git add "${git_root}"/.circleci/config.yml
 git add --all
-git commit -m "Docs update from $CIRCLE_BRANCH : $CIRCLE_SHA1"
+git commit --allow-empty -m "Docs update from $CIRCLE_BRANCH : $CIRCLE_SHA1"
 
 if [ ! -f "${git_root}"/index.html ]; then
 	>&2 echo doc build failed
