@@ -35,7 +35,8 @@ sphinx-build . build -vvv
 # push the docs to the gh-pages branch
 cd ..
 git stash
-git checkout origin gh-pages
+git fetch --all
+git checkout origin/gh-pages
 find . -maxdepth 1 -not -path '*/\.*' -not -name 'docs' -not -name 'CNAME' -exec rm -rf {} \;
 git_root="$(git rev-parse --show-toplevel)"
 cp -r docs/build/* "${git_root}"
@@ -43,11 +44,11 @@ rm -rf docs
 git checkout origin/master -- .circleci/config.yml
 git add .circleci/config.yml
 git add --all
-git commit -m "Docs update from $CIRCLE_BRANCH : $CIRCLE_SHA1"
+git commit --allow-empty -m "Docs update from $CIRCLE_BRANCH : $CIRCLE_SHA1"
 
 if [ ! -f "${git_root}"/index.html ]; then
 	>&2 echo doc build failed
 	exit 1
 fi
 
-git push
+git push --force origin HEAD:gh-pages
